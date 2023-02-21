@@ -23,7 +23,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="order.php" key="t-product-detail">Order Details</a></li>
-                        <li><a href=".php" key="t-products">Pending Orders</a></li>
+                        <li><a href="order-pending.php" key="t-products">Pending Orders</a></li>
                         <li><a href=".php" key="t-product">Dispatch Orders</a></li>
                         <li><a href=".php" key="t-product">Cancel Orders</a></li>
                     </ul>

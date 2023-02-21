@@ -69,6 +69,11 @@ include 'session.php';
                     $row = mysqli_fetch_assoc($result);
 
                     if (isset($_POST['cancel'])) {
+                        $reason = $_POST['cancelreason'];
+                        $cancel = 'cancel';
+                        
+                        $result = mysqli_query($conn, "UPDATE `order` SET `order_status` = '$cancel', `cancel_reason` = '$reason' WHERE `order`.`order_id` = $id") or die(mysqli_error($conn));
+                        header("Location: http://demo1.com/order.php");
                         
                     }
 

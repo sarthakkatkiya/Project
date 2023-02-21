@@ -86,9 +86,6 @@ include 'session.php'; ?>
                                 $sql = "UPDATE `product` SET `product_name` = '$product_name' , `price` = '$product_price'  WHERE `product`.`product_id` = $id";
                                     $result = mysqli_query($conn,$sql);
                             }
-
-
-                        
                             ?>
 
                             <?php
@@ -120,9 +117,6 @@ include 'session.php'; ?>
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="card-body">
 
-
-
-
                                         <div class="mb-3 row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">product
                                                 name</label>
@@ -149,9 +143,6 @@ include 'session.php'; ?>
                                             </div>
                                         </div>
 
-
-
-
                                         <div class="mb-3 row">
 
                                             <div class="col-md-10">
@@ -159,21 +150,13 @@ include 'session.php'; ?>
                                             </div>
                                         </div>
 
-
-
-
-
-
                                     </div>
                                 </form>
                             </div>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
-
-
                     <!-- end row -->
-
                 </div> <!-- container-fluid -->
             </div>
             <!-- End Page-content -->

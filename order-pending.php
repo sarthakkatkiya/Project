@@ -111,7 +111,7 @@ include 'session.php';
                                             <tbody>
                                                 <?php
 
-                                                $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
+                                                $data = mysqli_query($conn, "SELECT * FROM `order` where order_status = 'pending' ") or die(mysqli_error($conn));
 
                                                 $count = 1;
                                                 while ($row = mysqli_fetch_assoc($data)) {
@@ -180,32 +180,33 @@ include 'session.php';
             <!-- ------modal start--------- -->
 
             <?php
+
+
+
+
+
             $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
+            $order_stauts = $_POST["order_status"];
+            $id = $row['order_id'];
+
+            if (isset($_POST['update'])) {
+                // $result = mysqli_query($conn, "UPDATE `order` SET `order_status` = '$order_status' WHERE `order`.`order_id` = '$id'") or die(mysqli_error($conn));
+
+                $result = mysqli_query($conn, "INSERT INTO `order` (`order_status`) VALUES ('$order_status') WHERE `order`.`order_id` = '$id'") or die(mysqli_error($conn));
+
+
+                if ($result == true) {
+                    echo "Order status updated successfully...!";
+                } else {
+                    echo "Error...!";
+                }
+            }
 
             $count = 1;
             while ($row = mysqli_fetch_assoc($data)) {
-                $order_stauts = $_POST["order_status"];
-                $id = $row['order_id'];
 
-                if (isset($_POST['update'])) {
-                    // $result = mysqli_query($conn, "UPDATE `order` SET `order_status` = '$order_status' WHERE `order`.`order_id` = '$id'") or die(mysqli_error($conn));
-
-                    $result = mysqli_query($conn, "INSERT INTO `order` (`order_status`) VALUES ('$order_status') WHERE `order`.`order_id` = '$id'") or die(mysqli_error($conn));
-
-
-                    if ($result == true) {
-                        echo "Order status updated successfully...!";
-                    } else {
-                        echo "Error...!";
-                    }
-                }
-
-               
             ?>
 
-
-
-            <form method="post">
                 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="orderdetailsModalLabel" aria-hidden="true" id="SK25<?php echo $row['order_id'] ?>">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -298,7 +299,7 @@ include 'session.php';
                         </div>
                     </div>
                 </div>
-            </form>
+
             <?php
                 $count++;
             }
