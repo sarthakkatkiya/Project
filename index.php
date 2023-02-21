@@ -1,1 +1,1 @@
-<script> window.location = 'orderform.php' </script>
+<script> window.location = 'login.php' </script>
