@@ -73,11 +73,13 @@ include 'session.php';
                         $cancel = 'cancel';
                         
                         $result = mysqli_query($conn, "UPDATE `order` SET `order_status` = '$cancel', `cancel_reason` = '$reason' WHERE `order`.`order_id` = $id") or die(mysqli_error($conn));
-                        header("Location: http://demo1.com/order.php");
+                        ?>
                         
+                        <script> window.location = 'order.php' </script>
+                    <?php
                     }
-
                     ?>
+
 
                     <div class="row">
                         <div class="col-2"></div>

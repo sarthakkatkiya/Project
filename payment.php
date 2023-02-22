@@ -1,19 +1,30 @@
-<?php include("conn.php");
-session_start() ?>
+<?php include 'session.php';
+include 'conn.php'; 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);?>
 <!doctype html>
 <html lang="en">
 
 
+<!-- Mirrored from themesbrand.com/skote/layouts/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:30 GMT -->
 
 <head>
 
     <meta charset="utf-8" />
-    <title>Login | Skote - Admin & Dashboard Template</title>
+    <title>Data Tables | Skote - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- DataTables -->
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -21,11 +32,42 @@ session_start() ?>
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <style>
+        #datatable-buttons img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
 
 </head>
 
-<body>
-    <div class="row">
+<body data-sidebar="dark">
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <?php
+        include 'header.php';
+        include 'menu.php' ?>
+        <!-- Left Sidebar End -->
+
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -78,67 +120,43 @@ session_start() ?>
                                 </tr>
                             </thead>
                             <tbody role="rowgroup">
-                                <tr>
-                                    <td role="cell"><input type="checkbox" class="form-check-input"></td>
-                                    <td role="cell"><a class="text-body fw-bold" href="/dashboard">#SK2540</a></td>
-                                    <td role="cell">Neal Matthews</td>
-                                    <td role="cell">07 Oct, 2019</td>
-                                    <td role="cell">$400</td>
-                                    <td role="cell"><span class="font-size-11 badge-soft-success badge bg-secondary">Paid</span></td>
-                                    <td role="cell"><span><i class="fab fa-cc-mastercard me-1"></i> Mastercard</span></td>
-                                    <td role="cell"><button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button></td>
-                                </tr>
-                                <tr>
-                                    <td role="cell"><input type="checkbox" class="form-check-input"></td>
-                                    <td role="cell"><a class="text-body fw-bold" href="/dashboard">#SK2541</a></td>
-                                    <td role="cell">Jamal Burnett</td>
-                                    <td role="cell">07 Oct, 2019</td>
-                                    <td role="cell">$380</td>
-                                    <td role="cell"><span class="font-size-11 badge-soft-danger badge bg-secondary">Chargeback</span></td>
-                                    <td role="cell"><span><i class="fab fa-cc-visa me-1"></i> Visa</span></td>
-                                    <td role="cell"><button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button></td>
-                                </tr>
-                                <tr>
-                                    <td role="cell"><input type="checkbox" class="form-check-input"></td>
-                                    <td role="cell"><a class="text-body fw-bold" href="/dashboard">#SK2542</a></td>
-                                    <td role="cell">Juan Mitchell</td>
-                                    <td role="cell">06 Oct, 2019</td>
-                                    <td role="cell">$384</td>
-                                    <td role="cell"><span class="font-size-11 badge-soft-success badge bg-secondary">Paid</span></td>
-                                    <td role="cell"><span><i class="fab fa-cc-paypal me-1"></i> Paypal</span></td>
-                                    <td role="cell"><button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button></td>
-                                </tr>
-                                <tr>
-                                    <td role="cell"><input type="checkbox" class="form-check-input"></td>
-                                    <td role="cell"><a class="text-body fw-bold" href="/dashboard">#SK2543</a></td>
-                                    <td role="cell">Barry Dick</td>
-                                    <td role="cell">05 Oct, 2019</td>
-                                    <td role="cell">$412</td>
-                                    <td role="cell"><span class="font-size-11 badge-soft-success badge bg-secondary">Paid</span></td>
-                                    <td role="cell"><span><i class="fab fa-cc-mastercard me-1"></i> Mastercard</span></td>
-                                    <td role="cell"><button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button></td>
-                                </tr>
-                                <tr>
-                                    <td role="cell"><input type="checkbox" class="form-check-input"></td>
-                                    <td role="cell"><a class="text-body fw-bold" href="/dashboard">#SK2544</a></td>
-                                    <td role="cell">Ronald Taylor</td>
-                                    <td role="cell">04 Oct, 2019</td>
-                                    <td role="cell">$404</td>
-                                    <td role="cell"><span class="font-size-11 badge-soft-warning badge bg-secondary">Refund</span></td>
-                                    <td role="cell"><span><i class="fab fa-cc-visa me-1"></i> Visa</span></td>
-                                    <td role="cell"><button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button></td>
-                                </tr>
-                                <tr>
-                                    <td role="cell"><input type="checkbox" class="form-check-input"></td>
-                                    <td role="cell"><a class="text-body fw-bold" href="/dashboard">#SK2545</a></td>
-                                    <td role="cell">Jacob Hunter</td>
-                                    <td role="cell">04 Oct, 2019</td>
-                                    <td role="cell">$392</td>
-                                    <td role="cell"><span class="font-size-11 badge-soft-success badge bg-secondary">Paid</span></td>
-                                    <td role="cell"><span><i class="fab fa-cc-paypal me-1"></i> Paypal</span></td>
-                                    <td role="cell"><button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button></td>
-                                </tr>
-                            </tbody>
+                               
+                                                <?php
+
+                                                $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
+
+                                                $count = 1;
+                                                while ($row = mysqli_fetch_assoc($data)) {
+
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-check font-size-16">
+                                                                <input class="form-check-input" type="checkbox" id="orderidcheck09">
+                                                                <label class="form-check-label" for="orderidcheck09"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td><a href="javascript: void(0);" class="text-body fw-bold"><?php echo "#SK25" . $row['order_id'] ?></a>
+                                                        </td>
+                                                        <td><?php echo $row["billing_name"]; ?></td>
+                                                        <!-- <td><?php echo $row["phone"]; ?></td> -->
+                                                        <td><?php echo $row["order_date"]; ?></td>
+                                                        <td><?php echo "₹".$row["total"]; ?></td>
+                                                        <td><?php echo $row["pay_status"]; ?></td>
+                                                        <td><?php echo $row["pay_method"]; ?></td>
+                                                        <td role="cell">
+                                                            <a href="payment-slip.php?pay-slip=<?php echo $row['order_id']; ?>">
+                                                            <button type="button" class="btn-sm btn-rounded btn btn-primary">View Details</button>
+                                                            </a>
+                                                        </td>
+
+                                                    </tr>
+                                                <?php
+                                                    $count++;
+                                                }
+                                                ?>
+
+                                            </tbody>
                         </table>
                     </div>
                     <div class="justify-content-md-end justify-content-center align-items-center row">
@@ -155,17 +173,48 @@ session_start() ?>
             </div>
         </div>
     </div>
+            
+    <!-- /Right-bar -->
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
+    <script>
+        $(document).ready(function(){
+
+        });
+    </script>
+
     <script src="assets/libs/jquery/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/metismenu/metisMenu.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
 
-    <!-- App js -->
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="assets/libs/jszip/jszip.min.js"></script>
+    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables.init.js"></script>
+
     <script src="assets/js/app.js"></script>
+
 </body>
 
+<!-- Mirrored from themesbrand.com/skote/layouts/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:30 GMT -->
 
 </html>

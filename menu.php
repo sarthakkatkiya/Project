@@ -24,8 +24,8 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="order.php" key="t-product-detail">Order Details</a></li>
                         <li><a href="order-pending.php" key="t-products">Pending Orders</a></li>
-                        <li><a href=".php" key="t-product">Dispatch Orders</a></li>
-                        <li><a href=".php" key="t-product">Cancel Orders</a></li>
+                        <li><a href="order-dispatch.php" key="t-product">Dispatch Orders</a></li>
+                        <li><a href="order-cancel.php" key="t-product">Cancel Orders</a></li>
                     </ul>
                 </li>
                 <li>
@@ -59,8 +59,8 @@
                         <span key="t-ecommerce">Payment</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="appointment.php" key="t-products">Online Payment</a></li>
-                        <li><a href="inquiry.php" key="t-product-detail">COD</a></li>
+                        <li><a href="payment.php" key="t-products">Online Payment</a></li>
+                        <li><a href=".php" key="t-product-detail">COD</a></li>
 
                     </ul>
                 </li>

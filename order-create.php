@@ -81,9 +81,11 @@ include("session.php");
                                 $p_method = $_POST['p_method'];
                                 $p_via = $_POST['p_via'];
                                 $address = $_POST['address'];
+                                $order_status = $_POST['order_status'];
+                                $reason = $_POST['cancelreason'];
 
-                                $result = mysqli_query($conn, "INSERT INTO `order`(`billing_name`, `product_name`, `phone`, `order_date`, `total`, `pay_status`, `pay_method`,`pay_via`, `user_add`) VALUES 
-                                ('$username','$product_name','$phone','$date','$total','$p_status','$p_method','$p_via','$address')") or die(mysqli_error($conn));
+                                $result = mysqli_query($conn, "INSERT INTO `order`(`billing_name`, `product_name`, `phone`, `order_date`, `total`, `pay_status`, `pay_method`,`pay_via`, `user_add`, `order_status`, `cancel_reason`) VALUES 
+                                ('$username','$product_name','$phone','$date','$total','$p_status','$p_method','$p_via','$address','$order_status', '$reason')") or die(mysqli_error($conn));
 
                                     if($result==true){
                                         echo "Data inserted successfully...!";
@@ -154,6 +156,12 @@ include("session.php");
                                             <div class="col-md-10">
                                                 <input class="form-control" type="text" value="" id="address" name="address">
                                             </div>
+                                        </div>
+                                        <div>
+                                                <input class="form-control" type="hidden" value="pending" id="order_status" name="order_status">
+                                        </div>
+                                        <div>
+                                                <input class="form-control" type="hidden" value="null" id="cancelreason" name="cancelreason">
                                         </div>
                                         <div class="mt-3 d-grid">
                                         <button class="btn btn-primary waves-effect waves-light " type="submit" name="placeorder" id="btn">Place order

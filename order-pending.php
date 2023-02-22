@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include 'conn.php';
 include 'session.php';
 ?>
@@ -11,7 +14,7 @@ include 'session.php';
 
 <head>
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />    
     <title>Orders | Skote - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
@@ -54,7 +57,7 @@ include 'session.php';
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0 font-size-18">Orders</h4>
+                                <h4 class="mb-sm-0 font-size-18">Pending Orders</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -110,9 +113,7 @@ include 'session.php';
                                             </thead>
                                             <tbody>
                                                 <?php
-
-                                                $data = mysqli_query($conn, "SELECT * FROM `order` where order_status = 'pending' ") or die(mysqli_error($conn));
-
+                                                $data = mysqli_query($conn, "SELECT * FROM `order` WHERE `order`.`order_status` = 'pending' ") or die(mysqli_error($conn));
                                                 $count = 1;
                                                 while ($row = mysqli_fetch_assoc($data)) {
 
@@ -180,28 +181,7 @@ include 'session.php';
             <!-- ------modal start--------- -->
 
             <?php
-
-
-
-
-
             $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
-            $order_stauts = $_POST["order_status"];
-            $id = $row['order_id'];
-
-            if (isset($_POST['update'])) {
-                // $result = mysqli_query($conn, "UPDATE `order` SET `order_status` = '$order_status' WHERE `order`.`order_id` = '$id'") or die(mysqli_error($conn));
-
-                $result = mysqli_query($conn, "INSERT INTO `order` (`order_status`) VALUES ('$order_status') WHERE `order`.`order_id` = '$id'") or die(mysqli_error($conn));
-
-
-                if ($result == true) {
-                    echo "Order status updated successfully...!";
-                } else {
-                    echo "Error...!";
-                }
-            }
-
             $count = 1;
             while ($row = mysqli_fetch_assoc($data)) {
 
