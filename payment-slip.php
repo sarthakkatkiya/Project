@@ -5,8 +5,6 @@ include 'session.php';
 <!doctype html>
 <html lang="en">
     
-    
-<!-- Mirrored from themesbrand.com/skote/layouts/invoices-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:26 GMT -->
 <head>
         
         <meta charset="utf-8" />

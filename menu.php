@@ -54,15 +54,15 @@
 
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="payment.php">
                         <i class="bx bx-store"></i>
                         <span key="t-ecommerce">Payment</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
+                    <!-- <ul class="sub-menu" aria-expanded="false">
                         <li><a href="payment.php" key="t-products">Online Payment</a></li>
                         <li><a href=".php" key="t-product-detail">COD</a></li>
 
-                    </ul>
+                    </ul> -->
                 </li>
 
                 <li>

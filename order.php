@@ -131,7 +131,7 @@ include 'session.php';
                                                         </div>
                                                     </td>
                                                     <td><a href="javascript: void(0);"
-                                                            class="text-body fw-bold"><?php echo "#SK25" . $row['order_id'] ?></a>
+                                                            class="text-body fw-bold"><?php echo "#SK25" . $row['order_id']?></a>
                                                     </td>
                                                     <td><?php echo $row["billing_name"]; ?></td>
                                                     <td><?php echo $row["phone"]; ?></td>
@@ -151,6 +151,7 @@ include 'session.php';
 
                                                 </tr>
                                                 <?php
+                                                    $_SESSION["totaloreder"] = $count;
                                                     $count++;
                                                 }
                                                 ?>

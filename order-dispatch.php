@@ -108,7 +108,7 @@ include 'session.php';
                                                     <th class="align-middle">Products</th>
                                                     <th class="align-middle">Order stauts</th>
                                                     <th class="align-middle">Address</th>
-                                                    <th class="align-middle">Action</th>
+                                                    <th class="align-middle">Details</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -136,12 +136,13 @@ include 'session.php';
                                                         <td>
                                                             <div class="d-flex gap-3">
                                                                 <i class="mdi mdi-pencil font-size-18 text-success" data-bs-toggle="modal" data-bs-target="#SK25<?php echo $row['order_id'] ?>"></i>
-                                                                <a href="order-delete.php?order=<?php echo $row['order_id']; ?>"><i class="mdi mdi-delete font-size-18 text-danger"></i></a>
+                                                                <!-- <a href="order-delete.php?order=<?php echo $row['order_id']; ?>"><i class="mdi mdi-delete font-size-18 text-danger"></i></a> -->
                                                             </div>
                                                         </td>
 
                                                     </tr>
                                                 <?php
+                                                 $_SESSION["dispatchorder"] = $count;
                                                     $count++;
                                                 }
                                                 ?>
@@ -266,15 +267,7 @@ include 'session.php';
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <div class="col-md-4 ">
-                                    <select name="order_status" id="action" class="form-select dropdownField col-md-4">
-                                        <option value="pending">Pending</option>
-                                        <option value="progress">In progress</option>
-                                        <option value="dispatch">Dispatch</option>
-                                    </select>
-                                </div>
-
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="update">Update</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="update">Close</button>
                             </div>
                         </div>
                     </div>

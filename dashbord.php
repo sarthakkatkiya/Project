@@ -96,27 +96,32 @@ include("session.php");
                                                         <div class="col-3">
                                                             <div>
                                                                 <p class="text-muted text-truncate mb-2">Total Orders</p>
-                                                                <h5 class="mb-0">48</h5>
+                                                                <h5 class="mb-0"><?php echo $_SESSION["totaloreder"];?></h5>
                                                             </div>
                                                         </div>
                                                         <div class="col-3">
-                                                            <div>
-                                                                <p class="text-muted text-truncate mb-2">Pending Orders</p>
-                                                                <h5 class="mb-0">8</h5>
-                                                            </div>
+                                                            <a href="./order-pending.php">
+                                                                <div>
+                                                                    <p class="text-muted text-truncate mb-2">Pending Orders</p>
+                                                                    <h5 class="mb-0"><?php echo  $_SESSION["pendingoreder"];?></h5>
+                                                                </div>
+                                                            </a>
                                                         </div>
                                                         <div class="col-3">
-                                                            <div>
-                                                                <p class="text-muted text-truncate mb-2">Dispatch Orders</p>
-                                                                <h5 class="mb-0">40</h5>
-                                                            </div>
+                                                            <a href="./order-dispatch.php">
+                                                                <div>
+                                                                    <p class="text-muted text-truncate mb-2">Dispatch Orders</p>
+                                                                    <h5 class="mb-0"><?php echo $_SESSION["dispatchorder"];?></h5>
+                                                                </div>
+                                                            </a>
                                                         </div>
                                                         <div class="col-3">
-                                                            <div>
-                                                                <p class="text-muted text-truncate mb-2">Cancel Order</p>
-                                                                <h5 class="mb-0">0</h5>
-                                                                
-                                                            </div>
+                                                            <a href="./order-cancel.php">
+                                                                <div>
+                                                                    <p class="text-muted text-truncate mb-2">Cancel Order</p>
+                                                                    <h5 class="mb-0"><?php echo $_SESSION["cancelorder"];?></h5>
+                                                                </div>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -182,7 +187,7 @@ include("session.php");
                                                     <h5 class="font-size-14 mb-0">Revenue</h5>
                                                 </div>
                                                 <div class="text-muted mt-4">
-                                                    <h4>₹ 28,452 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                                    <h4>₹ <?php echo $_SESSION['revenue'];?><i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
                                                     <div class="d-flex">
                                                         <span class="badge badge-soft-success font-size-12"> + 0.2% </span> <span class="ms-2 text-truncate">From previous period</span>
                                                     </div>
@@ -203,7 +208,7 @@ include("session.php");
                                                     <h5 class="font-size-14 mb-0">Average Price</h5>
                                                 </div>
                                                 <div class="text-muted mt-4">
-                                                    <h4>₹ 16.2 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                                    <h4>₹ <?php echo $_SESSION['average'];?><i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
                                                     
                                                     <div class="d-flex">
                                                         <span class="badge badge-soft-warning font-size-12"> 0% </span> <span class="ms-2 text-truncate">From previous period</span>

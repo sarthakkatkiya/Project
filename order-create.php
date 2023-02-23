@@ -79,13 +79,12 @@ include("session.php");
                                 $total = $_POST['total'];
                                 $p_status = $_POST['p_status'];
                                 $p_method = $_POST['p_method'];
-                                $p_via = $_POST['p_via'];
                                 $address = $_POST['address'];
                                 $order_status = $_POST['order_status'];
                                 $reason = $_POST['cancelreason'];
 
-                                $result = mysqli_query($conn, "INSERT INTO `order`(`billing_name`, `product_name`, `phone`, `order_date`, `total`, `pay_status`, `pay_method`,`pay_via`, `user_add`, `order_status`, `cancel_reason`) VALUES 
-                                ('$username','$product_name','$phone','$date','$total','$p_status','$p_method','$p_via','$address','$order_status', '$reason')") or die(mysqli_error($conn));
+                                $result = mysqli_query($conn, "INSERT INTO `order`(`billing_name`, `product_name`, `phone`, `order_date`, `total`, `pay_status`, `pay_method`, `user_add`, `order_status`, `cancel_reason`) VALUES 
+                                ('$username','$product_name','$phone','$date','$total','$p_status','$p_method','$address','$order_status', '$reason')") or die(mysqli_error($conn));
 
                                     if($result==true){
                                         echo "Data inserted successfully...!";
@@ -143,12 +142,6 @@ include("session.php");
                                             <label for="example-text-input" class="col-md-2 col-form-label">Payment method</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="text" value="" id="p_method" name="p_method">
-                                            </div>
-                                        </div>
-                                        <div class="mb-3 row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Payment via</label>
-                                            <div class="col-md-10">
-                                                <input class="form-control" type="text" value="" id="p_via" name="p_via">
                                             </div>
                                         </div>
                                         <div class="mb-3 row">

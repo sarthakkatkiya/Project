@@ -143,6 +143,7 @@ include 'session.php';
 
                                                     </tr>
                                                 <?php
+                                                    $_SESSION["cancelorder"] = $count;
                                                     $count++;
                                                 }
                                                 ?>
