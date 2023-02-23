@@ -1,3 +1,4 @@
+
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
@@ -30,7 +31,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-share-alt"></i>
+                    <i class='bx bx-package' ></i>
                         <span key="t-multi-level">Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
@@ -40,7 +41,7 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-envelope"></i>
+                        <i class="bx bxs-bar-chart-alt-2"></i>
                         <span key="t-email">Chart</span>
                     </a>
 
@@ -48,14 +49,14 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-envelope"></i>
+                        <i class='bx bx-user'></i>
                         <span key="t-email">User</span>
                     </a>
 
                 </li>
                 <li>
                     <a href="payment.php">
-                        <i class="bx bx-store"></i>
+                        <i class='bx bx-rupee' ></i>
                         <span key="t-ecommerce">Payment</span>
                     </a>
                     <!-- <ul class="sub-menu" aria-expanded="false">
@@ -67,7 +68,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class=" waves-effect">
-                        <i class="bx bx-bitcoin"></i>
+                        <i class='bx bx-user-circle' ></i>
                         <span key="t-crypto">Admin Profile</span>
                     </a>
 
