@@ -117,7 +117,6 @@ include 'session.php';
                                                 <p class="mb-2">Total Amt: <span class="text-primary"><?php echo $row["total"]; ?></span></p>
                                                 <p class="mb-2">Payment Status <span class="text-primary"><?php echo $row["pay_status"]; ?></span></p>
                                                 <p class="mb-2">Payment Method: <span class="text-primary"><?php echo $row["pay_method"]; ?></span></p>
-                                                <p class="mb-2">Payment via: <span class="text-primary"><?php echo $row["pay_via"]; ?></span></p>
                                             </div>
 
                                         <div class="mb-3 row">

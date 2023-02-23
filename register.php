@@ -1,6 +1,5 @@
 <?php include("conn.php");
-include("session.php");
-session_start()?>
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,6 +21,11 @@ session_start()?>
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- toaster -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+
 
 </head>
 
@@ -49,8 +53,7 @@ session_start()?>
                                 <a href="index.html" class="auth-logo-light">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
-                                            <img src="assets/images/logo-light.svg" alt="" class="rounded-circle"
-                                                height="34">
+                                            <img src="assets/images/logo-light.svg" alt="" class="rounded-circle" height="34">
                                         </span>
                                     </div>
                                 </a>
@@ -63,23 +66,25 @@ session_start()?>
                                     </div>
                                 </a>
                             </div>
-                            
-                    
+
+
                             <?php
-                            if(isset($_POST['submit'])){
+                            if (isset($_POST['submit'])) {
                                 $username = $_POST['username'];
                                 $password = $_POST['password'];
                                 $cpassword = $_POST['confpassword'];
 
-                                
-                                if($password != $cpassword){
+
+                                if ($password != $cpassword) {
                                     echo "password is not matched!!!";
-                                }
-                                else{            
-                                    $result = mysqli_query($conn,"insert into admin (username,password) values ('$username','$password')") or die(mysqli_error($conn));
+                                } else {
+                                    $result = mysqli_query($conn, "insert into admin (username,password) values ('$username','$password')") or die(mysqli_error($conn));
                                     echo "Data inserted successfully!!!";
+                                    ?>
+                                    <script> window.location = 'order.php' </script>
+                            <?php
                                 }
-                                
+                            
                             }
 
                             ?>
@@ -88,15 +93,13 @@ session_start()?>
 
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
-                                        <input type="text" class="form-control name" id="username"name="username"
-                                            placeholder="Enter username" required>
+                                        <input type="text" class="form-control name" id="username" name="username" placeholder="Enter username" required>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
                                         <div class="input-group auth-pass-inputgroup">
-                                            <input type="text" class="form-control" placeholder="Enter password"
-                                                aria-label="Password" aria-describedby="password-addon"id="password" name="password" required>
+                                            <input type="text" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon" id="password" name="password" required>
                                             <!-- <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button> -->
                                         </div>
                                     </div>
@@ -104,10 +107,8 @@ session_start()?>
                                     <div class="mb-3">
                                         <label class="form-label">Confirm Password</label>
                                         <div class="input-group auth-pass-inputgroup">
-                                            <input type="password" class="form-control" placeholder="Confirm Your password"
-                                                aria-label="Password" aria-describedby="password-addon"id="confpassword" name="confpassword" required>
-                                            <button class="btn btn-light " type="button" id="password-addon"><i
-                                                    class="mdi mdi-eye-outline"></i></button>
+                                            <input type="password" class="form-control" placeholder="Confirm Your password" aria-label="Password" aria-describedby="password-addon" id="confpassword" name="confpassword" required>
+                                            <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                         </div>
                                     </div>
 
@@ -119,11 +120,11 @@ session_start()?>
                                     </div>
 
                                     <div class="mt-3 d-grid">
-                                        <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit" id="btn">submit 
-                            </button>
+                                        <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit" id="btn">submit
+                                        </button>
                                     </div>
 
-                                
+
                                 </form>
                             </div>
 
@@ -135,8 +136,9 @@ session_start()?>
                             <p>You have an already account ? <a href="login.html" class="fw-medium text-primary">
                                     Signin Here </a> </p>
                             <p>©
-                                <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i
-                                    class="mdi mdi-heart text-danger"></i> by Themesbrand
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
                             </p>
                         </div>
                     </div>
@@ -146,6 +148,12 @@ session_start()?>
         </div>
     </div>
     <!-- end account-pages -->
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
 
     <!-- JAVASCRIPT -->
     <script src="assets/libs/jquery/jquery.min.js"></script>
@@ -157,39 +165,58 @@ session_start()?>
     <!-- App js -->
     <script src="assets/js/app.js"></script>
     <script>
+          function displayToaster() { 
+            toastr.options = {
+            "positionClass": "toast-top-center",
+            "closeButton": true,
+            "newestOnTop": true,
+            "progressBar": true,
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "100",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            // "hideEasing": "linear",
+            "showMethod": "show",
+            // "hideMethod": "hide"
+        };
+    }
+    $("#btn").click(function() {
+        var name = $("#username").val();
+        var password = $("#password").val();
+        var confpassword = $("#confpassword").val();
         
-        $("#btn").click(function () { 
-            var name = $("#username").val();
-            var password = $("#password").val();
-            var confpassword = $("#confpassword").val();
-            
-            if (name == '' || name == null) {
-                alert("Enter username");
-                return false;                
-            }
-            else if (password == '' || password == null){
-                alert("Enter password");
+        if (name == '' || name == null) {
+                displayToaster();
+                toastr.error('Enter Your Username!');
                 return false;
-            }
-            else if(confpassword == '' || confpassword == null){
-                alert("Please fill the confirm pasword!!!");
+            } else if (password == '' || password == null) {
+                displayToaster();
+                toastr.error('Enter Your Password!');
                 return false;
-            }
-            else if(password != confpassword){
-                alert("Password and confirm password is not matched!!!");
+            } else if (confpassword == '' || confpassword == null) {
+                displayToaster();
+                toastr.error('confirm your password!');
                 return false;
-            }
-            else{
-                alert("Registered successfully...");
+            } else if (password != confpassword) {
+                displayToaster();
+                toastr.error('Those passwords didn’t match. Try again!');
+                return false;
+            } else {
+                displayToaster();
+                toastr.success('Registered successfully...');
                 return true;
             }
+            
             var values = $(this).serialize();
 
             $.ajax({
                 url: "register.php",
                 type: "post",
-                data: values ,
-                success: function (response) {
+                data: values,
+                success: function(response) {
 
                     // You will get response from your PHP page (what you echo or print)
                 },
@@ -197,7 +224,8 @@ session_start()?>
                     console.log(textStatus, errorThrown);
                 }
             });
-                    });
+        });
     </script>
 </body>
+
 </html>
