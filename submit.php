@@ -8,9 +8,10 @@ error_reporting(E_ALL);
 // ------------------------REGISTERATION------------------------
 if (isset($_POST['action']) && $_POST['action'] == 'registerForm') {
     $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $cpassword = $_POST['confpassword'];
-    $result = mysqli_query($conn, "INSERT INTO admin (username,password) VALUES ('$username','$password')") or die(mysqli_error($conn));
+    $result = mysqli_query($conn, "INSERT INTO admin (username,password,email) VALUES ('$username','$password','$email')") or die(mysqli_error($conn));
     echo "Registration successful!";
     if (!$result) {
         echo "Error updating record: " . mysqli_error($conn);
@@ -40,6 +41,17 @@ else if (isset($_POST['action']) && $_POST['action'] == 'loginForm') {
 
     }
 }
+// ----------------------------FORGOT PASSWORD----------------------------------
+else if (isset($_POST['action']) && $_POST['action'] == 'forgotForm') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['confpassword'];
+    $result = mysqli_query($conn, "UPDATE `admin` SET `password` = '$password' WHERE `admin`.`email` = '$email';") or die(mysqli_error($conn));
+    echo "Password update successfully!";
+    if (!$result) {
+        echo "Error updating record: " . mysqli_error($conn);
+    } 
+} 
 ?>
 
 

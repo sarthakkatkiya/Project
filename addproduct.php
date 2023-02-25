@@ -4,12 +4,7 @@ include 'session.php';
 
 <!doctype html>
 <html lang="en">
-
-
-
-
 <head>
-
     <meta charset="utf-8" />
     <title>Form Elements | Skote - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,13 +19,9 @@ include 'session.php';
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body data-sidebar="dark">
-
-    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <!-- Left Sidebar End -->
@@ -61,20 +52,13 @@ include 'session.php';
                     </div>
                     <!-- end page title -->
 
-
                     <?php
-
-                    if (isset($_POST["btnsub"])) {
-
-                       
+                    if (isset($_POST["btnsub"])) {                       
                         $productname = $_POST["productname"];
 
                         $ext = pathinfo($_FILES["productimage"]["name"],PATHINFO_EXTENSION);
                         $filename = rand(1111,9999).time().".".$ext;
-                        move_uploaded_file($_FILES["productimage"]["tmp_name"],"assets/uploads/product/". $filename);
-                        
-                   
-                        
+                        move_uploaded_file($_FILES["productimage"]["tmp_name"],"var/www/html/project/assets/uploads/product/". $filename);
                         $productprice = $_POST["productprice"];
 
                         $result = mysqli_query($conn, "INSERT INTO product (product_name,product_image, price ) 
@@ -82,24 +66,18 @@ include 'session.php';
 
                         if ($result == true) {
                     ?>
-
                             <div class="alert alert-primary" role="alert">
                                 product Inserted!
                             </div>
-
-
                         <?php
                         } else {
                         ?>
                             <div class="alert alert-danger" role="alert">
                                 Error!
                             </div>
-
                     <?php
-                         
                         }
                     }
-
                     ?>
 
                     <div class="row">
@@ -107,11 +85,7 @@ include 'session.php';
                         <div class="col-9">
                             <div class="card">
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="card-body">
-
-
-                                       
-                                       
+                                    <div class="card-body">                  
                                         <div class="mb-3 row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">product name</label>
                                             <div class="col-md-4">
@@ -130,43 +104,25 @@ include 'session.php';
                                                 <input class="form-control" type="text" value="" id="productprice" name="productprice">
                                             </div>
                                         </div>
-
-
-                                      
-
                                         <div class="mb-3 row">
-
                                             <div class="col-md-10">
                                                 <button type="submit" name="btnsub" class="btn btn-primary waves-effect waves-light">Submit</button>
                                             </div>
                                         </div>
-
-
-
-
-
-
                                     </div>
                                 </form>
                             </div>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
-
-
-                    <!-- end row -->
-
                 </div> <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-
             <?php
             include 'footer.php'
             ?>
         </div>
         <!-- end main content-->
-
     </div>
     <!-- END layout-wrapper -->
 
@@ -240,8 +196,4 @@ include 'session.php';
     <script src="assets/js/app.js"></script>
 
 </body>
-
-	
-
-
 </html>

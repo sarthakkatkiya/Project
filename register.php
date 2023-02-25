@@ -1,12 +1,9 @@
 <?php include("conn.php");
 ?>
+
 <!doctype html>
 <html lang="en">
-
-
-
 <head>
-
     <meta charset="utf-8" />
     <title>Registration | Skote - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,9 +21,6 @@
     <!-- toaster -->
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-
-
-
 </head>
 
 <body>
@@ -66,9 +60,6 @@
                                     </div>
                                 </a>
                             </div>
-
-
-
                             <div class="p-2">
                                 <form class="form-horizontal" action="" id="myForm" method="post">
                                     <input type="hidden" name="action" value="registerForm" />
@@ -76,7 +67,10 @@
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" class="form-control name" id="username" name="username" placeholder="Enter username" required>
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Email</label>
+                                        <input type="email" class="form-control name" id="email" name="email" placeholder="Enter email id" required>
+                                    </div>
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
                                         <div class="input-group auth-pass-inputgroup">
@@ -101,11 +95,34 @@
                                     </div>
 
                                     <div class="mt-3 d-grid">
-                                        <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit" id="btn">submit
+                                        <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit" id="btn">Register
                                         </button>
                                     </div>
-
-
+                                    <div class="mt-4 text-center">
+                                            <h5 class="font-size-14 mb-3">Sign up using</h5>
+            
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <a href="javascript::void()" class="social-list-item bg-primary text-white border-primary">
+                                                        <i class="mdi mdi-facebook"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript::void()" class="social-list-item bg-info text-white border-info">
+                                                        <i class="mdi mdi-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="javascript::void()" class="social-list-item bg-danger text-white border-danger">
+                                                        <i class="mdi mdi-google"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                
+                                        <div class="mt-4 text-center">
+                                            <p class="mb-0">By registering you agree to the Skote <a href="#" class="text-primary">Terms of Use</a></p>
+                                        </div>
                                 </form>
                             </div>
 
@@ -167,12 +184,22 @@
             $("#btn").click(function(e) {
                 e.preventDefault(); // prevent the default form submission
                 var name = $("#username").val();
+                var email = $("#email").val();
                 var password = $("#password").val();
                 var confpassword = $("#confpassword").val();
+                var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
 
                 if (name == '' || name == null) {
                     displayToaster();
                     toastr.error('Enter Your Username!');
+                    return false;
+                } else if (email == '' || email == null) {
+                    displayToaster();
+                    toastr.error('Enter Your Email!');
+                    return false;
+                } else if (!pattern.test(email)) {
+                    displayToaster();
+                    toastr.error('Enter a valid email address!');
                     return false;
                 } else if (password == '' || password == null) {
                     displayToaster();

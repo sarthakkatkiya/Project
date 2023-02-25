@@ -55,7 +55,7 @@ include 'session.php'; ?>
                                 <h4 class="mb-sm-0 font-size-18">Change Password</h4>
 
                                 <div class="page-title-right">
-                                    <a href="dashboard.php"> <button type="button" class="btn btn-primary waves-effect waves-light">Back</button></a>
+                                    <a href="dashbord.php"> <button type="button" class="btn btn-primary waves-effect waves-light">Back</button></a>
                                 </div>
 
                             </div>
@@ -82,6 +82,13 @@ include 'session.php'; ?>
                                 $result = mysqli_query($conn, "UPDATE  admin SET password = '$newpswd' where id = '$adminid' ")
                                 or die(mysqli_error($conn));
                                 
+                                ?>
+                                <div class="alert alert-primary" role="alert">
+                                    password changed successfully...!
+                                </div>
+                                
+                                <?php
+
                             } 
                             else {
                                 
