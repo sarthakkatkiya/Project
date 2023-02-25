@@ -1,5 +1,5 @@
 <?php include("conn.php");
-session_start()?>
+session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -48,8 +48,7 @@ session_start()?>
                                 <a href="index.html" class="auth-logo-light">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
-                                            <img src="assets/images/logo-light.svg" alt="" class="rounded-circle"
-                                                height="34">
+                                            <img src="assets/images/logo-light.svg" alt="" class="rounded-circle" height="34">
                                         </span>
                                     </div>
                                 </a>
@@ -62,55 +61,50 @@ session_start()?>
                                     </div>
                                 </a>
                             </div>
-                            
-                    
+
+
                             <?php
-                            if(isset($_POST['submit'])){
+                            if (isset($_POST['submit'])) {
                                 $username = $_POST['username'];
                                 $password = $_POST['password'];
 
-                                $result = mysqli_query($conn,"select*from admin where username='$username' AND password='$password'") or die(mysqli_error($conn));
+                                $result = mysqli_query($conn, "select*from admin where username='$username' AND password='$password'") or die(mysqli_error($conn));
                                 $row = mysqli_num_rows($result);
 
-                                if($row == 0){
-                                    
-                                    ?>
-                                 <div class="alert alert-danger" role="alert">
-                                    invalid
-                                    </div> 
-                                    <?php
-                                }
-                                else{
+                                if ($row == 0) {
+
+                            ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        Enter valid username and password...!
+                                    </div>
+                            <?php
+                                } else {
                                     $_SESSION["islogin"] = true;
 
-                                    foreach($result as $row){
+                                    foreach ($result as $row) {
 
                                         $_SESSION["adminusername"] = $row["username"];
                                         $_SESSION["adminid"] = $row["id"];
                                     }
-                                    
+
                                     echo "<script> window.location = 'dashbord.php' </script>";
-                                    
                                 }
                             }
 
                             ?>
                             <div class="p-2">
-                                <form class="form-horizontal" action="" method="post">
-
+                                <form class="form-horizontal" id="loginForm" action="" method="post">
+                                    <input type="hidden" name="action" value="loginForm" />
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
-                                        <input type="text" class="form-control" id="username"name="username"
-                                            placeholder="Enter username" required>
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
                                         <div class="input-group auth-pass-inputgroup">
-                                            <input type="password" class="form-control" placeholder="Enter password"
-                                                aria-label="Password" aria-describedby="password-addon"id="password" name="password" required>
-                                            <button class="btn btn-light " type="button" id="password-addon"><i
-                                                    class="mdi mdi-eye-outline"></i></button>
+                                            <input type="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon" id="password" name="password" required>
+                                            <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                         </div>
                                     </div>
 
@@ -122,11 +116,11 @@ session_start()?>
                                     </div>
 
                                     <div class="mt-3 d-grid">
-                                        <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit">submit 
-                            </button>
+                                        <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit" id="submit">submit
+                                        </button>
                                     </div>
 
-                                
+
                                 </form>
                             </div>
 
@@ -138,8 +132,9 @@ session_start()?>
                             <p>Don't have an account ? <a href="register.php" class="fw-medium text-primary">
                                     Signup now </a> </p>
                             <p>©
-                                <script>document.write(new Date().getFullYear())</script> Skote. Crafted with <i
-                                    class="mdi mdi-heart text-danger"></i> by Themesbrand
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
                             </p>
                         </div>
                     </div>
@@ -157,8 +152,42 @@ session_start()?>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
 
+
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#submit").click(function(e) {
+                e.preventDefault(); // prevent the default form submission
+
+                var username = $("#username").val();
+                var password = $("#password").val();
+
+                var values = $("#loginForm").serialize();
+                console.log(values);
+
+                $.ajax({
+                    url: "submit.php",
+                    type: "post",
+                    data: values,
+                    success: function(response) {
+                        console.log(JSON.parse(response)); // log the response from the server
+                        // redirect to the login page on successful registration
+                        if (JSON.parse(response)) {
+                            window.location.href = "http://demo1.com/dashbord.php";
+                            const username = response?.username
+
+                            <?php  $_SESSION["adminusername"] ?> = username;
+                           
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        //  console.log(textStatus, errorThrown);  
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 

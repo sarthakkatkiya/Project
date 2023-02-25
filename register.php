@@ -68,29 +68,10 @@
                             </div>
 
 
-                            <?php
-                            if (isset($_POST['submit'])) {
-                                $username = $_POST['username'];
-                                $password = $_POST['password'];
-                                $cpassword = $_POST['confpassword'];
 
-
-                                if ($password != $cpassword) {
-                                    echo "password is not matched!!!";
-                                } else {
-                                    $result = mysqli_query($conn, "insert into admin (username,password) values ('$username','$password')") or die(mysqli_error($conn));
-                                    echo "Data inserted successfully!!!";
-                                    ?>
-                                    <script> window.location = 'order.php' </script>
-                            <?php
-                                }
-                            
-                            }
-
-                            ?>
                             <div class="p-2">
-                                <form class="form-horizontal" action="" method="post">
-
+                                <form class="form-horizontal" action="" id="myForm" method="post">
+                                    <input type="hidden" name="action" value="registerForm" />
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" class="form-control name" id="username" name="username" placeholder="Enter username" required>
@@ -164,65 +145,67 @@
 
     <!-- App js -->
     <script src="assets/js/app.js"></script>
-    <script>
-          function displayToaster() { 
-            toastr.options = {
-            "positionClass": "toast-top-center",
-            "closeButton": true,
-            "newestOnTop": true,
-            "progressBar": true,
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "100",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            // "hideEasing": "linear",
-            "showMethod": "show",
-            // "hideMethod": "hide"
-        };
-    }
-    $("#btn").click(function() {
-        var name = $("#username").val();
-        var password = $("#password").val();
-        var confpassword = $("#confpassword").val();
-        
-        if (name == '' || name == null) {
-                displayToaster();
-                toastr.error('Enter Your Username!');
-                return false;
-            } else if (password == '' || password == null) {
-                displayToaster();
-                toastr.error('Enter Your Password!');
-                return false;
-            } else if (confpassword == '' || confpassword == null) {
-                displayToaster();
-                toastr.error('confirm your password!');
-                return false;
-            } else if (password != confpassword) {
-                displayToaster();
-                toastr.error('Those passwords didn’t match. Try again!');
-                return false;
-            } else {
-                displayToaster();
-                toastr.success('Registered successfully...');
-                return true;
+    <script>      
+            function displayToaster() {
+                toastr.options = {
+                    "positionClass": "toast-top-center",
+                    "closeButton": true,
+                    "newestOnTop": true,
+                    "progressBar": true,
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "100",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "showMethod": "show",
+                };
             }
-            
-            var values = $(this).serialize();
 
-            $.ajax({
-                url: "register.php",
-                type: "post",
-                data: values,
-                success: function(response) {
+        $(document).ready(function() {
+            $("#btn").click(function(e) {
+                e.preventDefault(); // prevent the default form submission
+                var name = $("#username").val();
+                var password = $("#password").val();
+                var confpassword = $("#confpassword").val();
 
-                    // You will get response from your PHP page (what you echo or print)
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus, errorThrown);
+                if (name == '' || name == null) {
+                    displayToaster();
+                    toastr.error('Enter Your Username!');
+                    return false;
+                } else if (password == '' || password == null) {
+                    displayToaster();
+                    toastr.error('Enter Your Password!');
+                    return false;
+                } else if (confpassword == '' || confpassword == null) {
+                    displayToaster();
+                    toastr.error('confirm your password!');
+                    return false;
+                } else if (password != confpassword) {
+                    displayToaster();
+                    toastr.error('Those passwords didn’t match. Try again!');
+                    return false;
+                } else {
+                    displayToaster();
+                    toastr.success('Registered successfully...');
                 }
+
+                var values = $("#myForm").serialize();
+
+                $.ajax({
+                    url: "submit.php",
+                    type: "post",
+                    data: values,
+                    success: function(response) {
+                        console.log(response); // log the response from the server
+                        // redirect to the login page on successful registration
+                        window.location.href = "http://demo1.com/login.php";
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
             });
         });
     </script>

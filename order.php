@@ -84,9 +84,7 @@ include 'session.php';
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="text-sm-end">
-                                                <a href="order-create.php"><button type="button"
-                                                        class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                            class="mdi mdi-plus me-1"></i> Add New Order</button></a>
+                                                <a href="order-create.php"><button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Add New Order</button></a>
                                             </div>
                                         </div><!-- end col-->
                                     </div>
@@ -97,8 +95,7 @@ include 'session.php';
                                                 <tr>
                                                     <th style="width: 20px;" class="align-middle">
                                                         <div class="form-check font-size-16">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="checkAll">
+                                                            <input class="form-check-input" type="checkbox" id="checkAll">
                                                             <label class="form-check-label" for="checkAll"></label>
                                                         </div>
                                                     </th>
@@ -114,42 +111,33 @@ include 'session.php';
                                             </thead>
                                             <tbody>
                                                 <?php
-
                                                 $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
-
                                                 $count = 1;
                                                 while ($row = mysqli_fetch_assoc($data)) {
-
                                                 ?>
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check font-size-16">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                id="orderidcheck09">
-                                                            <label class="form-check-label"
-                                                                for="orderidcheck09"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td><a href="javascript: void(0);"
-                                                            class="text-body fw-bold"><?php echo "#SK25" . $row['order_id']?></a>
-                                                    </td>
-                                                    <td><?php echo $row["billing_name"]; ?></td>
-                                                    <td><?php echo $row["phone"]; ?></td>
-                                                    <td><?php echo $row["order_date"]; ?></td>
-                                                    <td><?php echo $row["product_name"]; ?></td>
-                                                    <td><?php echo $row["order_status"]; ?></td>
-                                                    <td><?php echo $row["user_add"]; ?></td>
-                                                    <td>
-                                                        <div class="d-flex gap-3">
-                                                            <i class="mdi mdi-pencil font-size-18 text-success"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#SK25<?php echo $row['order_id'] ?>"></i>
-                                                            <a href="order-delete.php?order=<?php echo $row['order_id']; ?>"><i
-                                                                    class="mdi mdi-delete font-size-18 text-danger"></i></a>
-                                                        </div>
-                                                    </td>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="form-check font-size-16">
+                                                                <input class="form-check-input" type="checkbox" id="orderidcheck09">
+                                                                <label class="form-check-label" for="orderidcheck09"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td><a href="javascript: void(0);" class="text-body fw-bold"><?php echo "#SK25" . $row['order_id'] ?></a>
+                                                        </td>
+                                                        <td><?php echo $row["billing_name"]; ?></td>
+                                                        <td><?php echo $row["phone"]; ?></td>
+                                                        <td><?php echo $row["order_date"]; ?></td>
+                                                        <td><?php echo $row["product_name"]; ?></td>
+                                                        <td><?php echo $row["order_status"]; ?></td>
+                                                        <td><?php echo $row["user_add"]; ?></td>
+                                                        <td>
+                                                            <div class="d-flex gap-3">
+                                                                <i class="mdi mdi-pencil font-size-18 text-success" data-bs-toggle="modal" data-bs-target="#SK25<?php echo $row['order_id'] ?>"></i>
+                                                                <a href="order-delete.php?order=<?php echo $row['order_id']; ?>"><i class="mdi mdi-delete font-size-18 text-danger"></i></a>
+                                                            </div>
+                                                        </td>
 
-                                                </tr>
+                                                    </tr>
                                                 <?php
                                                     $_SESSION["totaloreder"] = $count;
                                                     $count++;
@@ -165,8 +153,7 @@ include 'session.php';
                                                 <i class="mdi mdi-chevron-left"></i>
                                             </a>
                                         </li>
-                                        <li class="page-item active"><a class="page-link"
-                                                href="javascript: void(0);">1</a></li>
+                                        <li class="page-item active"><a class="page-link" href="javascript: void(0);">1</a></li>
                                         <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
                                         </li>
                                         <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
@@ -193,129 +180,117 @@ include 'session.php';
 
             <?php
             $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
-
             $count = 1;
             while ($row = mysqli_fetch_assoc($data)) {
                 $id = $row['order_id'];
             ?>
-
-
-
-            <form method="post">
-                <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="orderdetailsModalLabel"
-                    aria-hidden="true" id="SK25<?php echo $id ?>">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="orderdetailsModalLabel">Order Details</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="mb-2">Order id: <span class="text-primary"><?php echo "#SK25" . $id ?></span>
-                                </p>
-                                <p class="mb-4">Billing Name: <span
-                                        class="text-primary"><?php echo $row["billing_name"]; ?></span></p>
-
-                                <div class="table-responsive">
-                                    <table class="table align-middle table-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Product Name</th>
-                                                <th scope="col">Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="assets/images/product/img-7.png" alt=""
-                                                            class="avatar-sm">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Wireless Headphone
-                                                            (Black)
-                                                        </h5>
-                                                        <p class="text-muted mb-0">$ 225 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 255</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    <div>
-                                                        <img src="assets/images/product/img-4.png" alt=""
-                                                            class="avatar-sm">
-                                                    </div>
-                                                </th>
-                                                <td>
-                                                    <div>
-                                                        <h5 class="text-truncate font-size-14">Hoodie (Blue)</h5>
-                                                        <p class="text-muted mb-0">$ 145 x 1</p>
-                                                    </div>
-                                                </td>
-                                                <td>$ 145</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Sub Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Shipping:</h6>
-                                                </td>
-                                                <td>
-                                                    Free
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <h6 class="m-0 text-right">Total:</h6>
-                                                </td>
-                                                <td>
-                                                    $ 400
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                <form method="post">
+                    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="orderdetailsModalLabel" aria-hidden="true" id="SK25<?php echo $id ?>">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="orderdetailsModalLabel">Order Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col-md-4 ">
-                                    <select name="cars" class="cars form-select" id="select<?php echo $row['order_id'] ?>">
-                                        <option value="pending">Pending</option>
-                                        <option value="progress">In Progress</option>
-                                        <option value="dispatch">Dispatch</option>
-                                    </select>
+                                <div class="modal-body">
+                                    <p class="mb-2">Order id: <span class="text-primary"><?php echo "#SK25" . $id ?></span>
+                                    </p>
+                                    <p class="mb-4">Billing Name: <span class="text-primary"><?php echo $row["billing_name"]; ?></span></p>
+
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Product</th>
+                                                    <th scope="col">Product Name</th>
+                                                    <th scope="col">Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <div>
+                                                            <img src="assets/images/product/img-7.png" alt="" class="avatar-sm">
+                                                        </div>
+                                                    </th>
+                                                    <td>
+                                                        <div>
+                                                            <h5 class="text-truncate font-size-14">Wireless Headphone
+                                                                (Black)
+                                                            </h5>
+                                                            <p class="text-muted mb-0">$ 225 x 1</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>$ 255</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <div>
+                                                            <img src="assets/images/product/img-4.png" alt="" class="avatar-sm">
+                                                        </div>
+                                                    </th>
+                                                    <td>
+                                                        <div>
+                                                            <h5 class="text-truncate font-size-14">Hoodie (Blue)</h5>
+                                                            <p class="text-muted mb-0">$ 145 x 1</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>$ 145</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h6 class="m-0 text-right">Sub Total:</h6>
+                                                    </td>
+                                                    <td>
+                                                        $ 400
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h6 class="m-0 text-right">Shipping:</h6>
+                                                    </td>
+                                                    <td>
+                                                        Free
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h6 class="m-0 text-right">Total:</h6>
+                                                    </td>
+                                                    <td>
+                                                        $ 400
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <!-- <div>
+                                <input type="hidden" name="action" value="orderForm" />
+                                <div class="modal-footer">
+                                    <div class="col-md-4 ">
+                                        <select name="order_status" class="form-select" id="select<?php echo $row['order_id'] ?>">
+                                            <option value="pending">Pending</option>
+                                            <option value="progress">In Progress</option>
+                                            <option value="dispatch">Dispatch</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div>
                                 <input type="hidden" class="" name="order_status" id="SK25<?php echo $row['order_id'] ?>" value="">
-                            </div> -->
-                                <button type="button" id="update" data-id="<?php echo $id ?>"
-                                    class="btn btn-secondary update" name="<?php echo $id ?>"  data-bs-dismiss="modal">Update</button>
+                                </div> -->
+                                    <button type="button" id="update" data-id="<?php echo $id ?>" class="btn btn-secondary update" name="<?php echo $id ?>" data-bs-dismiss="modal">Update</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
             <?php
                 $count++;
             }
             ?>
             <!-- ------modal end--------- -->
-
             <?php include "footer.php"; ?>
 
         </div>
-        <!-- END layout-wrapper -->
-        <!-- Right Sidebar -->
         <div class="right-bar">
             <div data-simplebar class="h-100">
                 <div class="rightbar-title d-flex align-items-center px-3 py-4">
@@ -371,39 +346,41 @@ include 'session.php';
             </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
-
         <!-- JAVASCRIPT -->
         <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/libs/metismenu/metisMenu.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/node-waves/waves.min.js"></script>
-
         <!-- App js -->
         <script src="assets/js/app.js"></script>
-
 </body>
 
+
 <script>
-$(document).on('click', '.update', function(e) {
-    console.log(e.target);
-    console.log($(`#select${$(e.target).attr('name')}`).val(),
-        "'$('#update').attr('data-id'), $('#action').val()'")
-    const data = {
-        id: $(e.target).attr('name'),
-        val: $(`#select${$(e.target).attr('name')}`).val()
-
-    }
-    $.post("./submit.php", data,
-        function(data, textStatus, jqXHR) {
-
+    $(document).on('click', '.update', function(e) {
+        console.log(e.target);
+        console.log($(`#select${$(e.target).attr('name')}`).val(),
+            "'$('#update').attr('data-id'), $('#action').val()'")
+        const data = {
+            id: $(e.target).attr('name'),
+            val: $(`#select${$(e.target).attr('name')}`).val(),
+            action: 'orderForm',
         }
-    );
-});
+        $.ajax({
+            url: "submit.php",
+            type: "post",
+            data,
+            success: function(response) {
+                console.log(response); // log the response from the server
+                // redirect to the login page on successful registration
+            },
+            error: function(jqXHR, textStatus, ) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    });
 </script>
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
 
 </html>

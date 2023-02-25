@@ -272,9 +272,10 @@ include 'session.php';
                                         </table>
                                     </div>
                                 </div>
+                                <input type="hidden" name="action" value="orderForm" />
                                 <div class="modal-footer">
                                     <div class="col-md-4 ">
-                                        <select name="cars" class="cars form-select" id="select<?php echo $row['order_id'] ?>">
+                                        <select name="order_status" class="form-select" id="select<?php echo $row['order_id'] ?>">
                                             <option value="pending">Pending</option>
                                             <option value="progress">In Progress</option>
                                             <option value="dispatch">Dispatch</option>
@@ -375,7 +376,8 @@ include 'session.php';
                     "'$('#update').attr('data-id'), $('#action').val()'")
                 const data = {
                     id: $(e.target).attr('name'),
-                    val: $(`#select${$(e.target).attr('name')}`).val()
+                    val: $(`#select${$(e.target).attr('name')}`).val(),
+                    action: 'orderForm',
 
                 }
                 $.post("./submit.php", data,
