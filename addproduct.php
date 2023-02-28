@@ -1,9 +1,10 @@
-<?php include 'conn.php'; 
+<?php include 'conn.php';
 include 'session.php';
- ?>
+?>
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <title>Form Elements | Skote - Admin & Dashboard Template</title>
@@ -52,40 +53,14 @@ include 'session.php';
                     </div>
                     <!-- end page title -->
 
-                    <?php
-                    if (isset($_POST["btnsub"])) {                       
-                        $productname = $_POST["productname"];
-
-                        $ext = pathinfo($_FILES["productimage"]["name"],PATHINFO_EXTENSION);
-                        $filename = rand(1111,9999).time().".".$ext;
-                        move_uploaded_file($_FILES["productimage"]["tmp_name"],"var/www/html/project/assets/uploads/product/". $filename);
-                        $productprice = $_POST["productprice"];
-
-                        $result = mysqli_query($conn, "INSERT INTO product (product_name,product_image, price ) 
-                        VALUE ('$productname','$filename','$productprice' )") or die(mysqli_error($conn));
-
-                        if ($result == true) {
-                    ?>
-                            <div class="alert alert-primary" role="alert">
-                                product Inserted!
-                            </div>
-                        <?php
-                        } else {
-                        ?>
-                            <div class="alert alert-danger" role="alert">
-                                Error!
-                            </div>
-                    <?php
-                        }
-                    }
-                    ?>
 
                     <div class="row">
                         <div class="col-2"></div>
                         <div class="col-9">
                             <div class="card">
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="card-body">                  
+                                <form action="" method="post" id="addproduct" enctype="multipart/form-data">
+                                    <input type="hidden" name="action" value="addproduct">
+                                    <div class="card-body">
                                         <div class="mb-3 row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">product name</label>
                                             <div class="col-md-4">
@@ -106,7 +81,7 @@ include 'session.php';
                                         </div>
                                         <div class="mb-3 row">
                                             <div class="col-md-10">
-                                                <button type="submit" name="btnsub" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                <button type="submit" name="btnsub" id="btnsub" class="btn btn-primary waves-effect waves-light">Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -195,5 +170,43 @@ include 'session.php';
 
     <script src="assets/js/app.js"></script>
 
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '#btnsub', function(e) {
+                e.preventDefault();
+                var formdata = new FormData();
+                var pname = $("#productname").val();
+                var price = $("#productprice").val();
+                var pimage = $("#productimage").prop('files')[0];
+                
+
+                formdata.append('pname', pname);
+                formdata.append('pimage', pimage);
+                formdata.append('price', price);    
+                formdata.append('action', 'addproduct');
+
+                
+
+                $.ajax({
+                    type: "POST",
+                    url: "submit.php",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log('hello');
+                        console.log(response);
+                        window.location.href = 'http://demo1.com/product.php';
+                        
+                    }
+                });
+            }); 
+        });
+    </script>
+
 </body>
+
 </html>

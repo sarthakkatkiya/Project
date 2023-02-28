@@ -191,7 +191,6 @@ session_start() ?>
                 var password = $("#password").val();
 
                 var values = $("#loginForm").serialize();
-                console.log(values);
 
                 $.ajax({
                     url: "submit.php",

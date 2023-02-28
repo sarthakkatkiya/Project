@@ -6,9 +6,6 @@ error_reporting(E_ALL);?>
 <!doctype html>
 <html lang="en">
 
-
-<!-- Mirrored from themesbrand.com/skote/layouts/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:30 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -25,7 +22,7 @@ error_reporting(E_ALL);?>
 
     <!-- Responsive datatable examples -->
     <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+    
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -40,24 +37,13 @@ error_reporting(E_ALL);?>
     </style>
 
 </head>
-
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
-
-
-        <!-- ========== Left Sidebar Start ========== -->
         <?php
         include 'header.php';
         include 'menu.php' ?>
-        <!-- Left Sidebar End -->
-
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -80,17 +66,10 @@ error_reporting(E_ALL);?>
                         </div>
                     </div>
                     <!-- end page title -->
-
-
-
-                          
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-
-
-
                                     <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                         <thead>
                                             <tr>
@@ -98,19 +77,13 @@ error_reporting(E_ALL);?>
                                                 <th>product name</th>
                                                 <th>product image</th>
                                                 <th>price</th>
-                                           
-
                                             </tr>
                                         </thead>
-
-                                        
-
                                         <tbody>
                                             <?php
                                             $result = mysqli_query($conn, "SELECT * FROM `product`") or die(mysqli_error($conn));
                                             $count = 1;
                                             while ($row = mysqli_fetch_assoc($result)) {
-
                                             ?>
                                                 <tr>
                                                     <td><?php echo $count; ?></td>
@@ -131,7 +104,6 @@ error_reporting(E_ALL);?>
                                                 $count++;
                                             }
                                             ?>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -142,9 +114,6 @@ error_reporting(E_ALL);?>
                 </div> <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-
-
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -166,7 +135,6 @@ error_reporting(E_ALL);?>
 
     </div>
     <!-- END layout-wrapper -->
-
     <!-- Right Sidebar -->
     <div class="right-bar">
         <div data-simplebar class="h-100">
@@ -227,12 +195,7 @@ error_reporting(E_ALL);?>
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-    <script>
-        $(document).ready(function(){
-
-        });
-    </script>
-
+   
     <script src="assets/libs/jquery/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/metismenu/metisMenu.min.js"></script>
@@ -258,11 +221,12 @@ error_reporting(E_ALL);?>
 
     <!-- Datatable init js -->
     <script src="assets/js/pages/datatables.init.js"></script>
-
     <script src="assets/js/app.js"></script>
 
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    
+
 </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:30 GMT -->
-
 </html>
