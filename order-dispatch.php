@@ -8,10 +8,6 @@ include 'session.php';
 
 <!doctype html>
 <html lang="en">
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -21,7 +17,6 @@ include 'session.php';
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -32,9 +27,7 @@ include 'session.php';
 </head>
 
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <?php
@@ -43,16 +36,12 @@ include 'session.php';
         ?>
         <!-- Left Sidebar End -->
 
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
@@ -180,7 +169,6 @@ include 'session.php';
             </div>
 
             <!-- ------modal start--------- -->
-
             <?php
             $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
             $count = 1;
@@ -287,18 +275,14 @@ include 'session.php';
         <div class="right-bar">
             <div data-simplebar class="h-100">
                 <div class="rightbar-title d-flex align-items-center px-3 py-4">
-
                     <h5 class="m-0 me-2">Settings</h5>
-
                     <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
                         <i class="mdi mdi-close noti-icon"></i>
                     </a>
                 </div>
-
                 <!-- Settings -->
                 <hr class="mt-0" />
                 <h6 class="text-center mb-0">Choose Layouts</h6>
-
                 <div class="p-4">
                     <div class="mb-2">
                         <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
@@ -332,13 +316,9 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                         <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                     </div>
-
-
                 </div>
-
             </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
+        </div> <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
@@ -354,7 +334,4 @@ include 'session.php';
         <script src="assets/js/app.js"></script>
 
 </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 </html>

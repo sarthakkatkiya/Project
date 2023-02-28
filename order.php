@@ -5,10 +5,6 @@ include 'session.php';
 
 <!doctype html>
 <html lang="en">
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -26,13 +22,10 @@ include 'session.php';
     <!-- App Css-->
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-
 </head>
 
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <?php
@@ -40,9 +33,6 @@ include 'session.php';
         include 'menu.php';
         ?>
         <!-- Left Sidebar End -->
-
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -339,10 +329,7 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                         <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                     </div>
-
-
                 </div>
-
             </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
@@ -356,7 +343,6 @@ include 'session.php';
         <!-- App js -->
         <script src="assets/js/app.js"></script>
 </body>
-
 
 <script>
     $(document).on('click', '.update', function(e) {

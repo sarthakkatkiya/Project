@@ -8,10 +8,6 @@ include 'session.php';
 
 <!doctype html>
 <html lang="en">
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -32,9 +28,7 @@ include 'session.php';
 </head>
 
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <?php
@@ -42,9 +36,6 @@ include 'session.php';
         include 'menu.php';
         ?>
         <!-- Left Sidebar End -->
-
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -174,13 +165,11 @@ include 'session.php';
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- end row -->
+                    </div><!-- end row -->
                 </div> <!-- container-fluid -->
             </div>
 
             <!-- ------modal start--------- -->
-
             <?php
             $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
 
@@ -188,9 +177,6 @@ include 'session.php';
             while ($row = mysqli_fetch_assoc($data)) {
                 $id = $row['order_id'];
             ?>
-
-
-
                 <form method="post">
                     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="orderdetailsModalLabel" aria-hidden="true" id="SK25<?php echo $id ?>">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -297,7 +283,6 @@ include 'session.php';
             <!-- ------modal end--------- -->
 
             <?php include "footer.php"; ?>
-
         </div>
         <!-- END layout-wrapper -->
         <!-- Right Sidebar -->
@@ -311,7 +296,6 @@ include 'session.php';
                         <i class="mdi mdi-close noti-icon"></i>
                     </a>
                 </div>
-
                 <!-- Settings -->
                 <hr class="mt-0" />
                 <h6 class="text-center mb-0">Choose Layouts</h6>
@@ -349,10 +333,7 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                         <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                     </div>
-
-
                 </div>
-
             </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
@@ -389,7 +370,4 @@ include 'session.php';
         </script>
 
 </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 </html>

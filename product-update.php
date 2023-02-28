@@ -1,17 +1,9 @@
 <?php include 'conn.php'; 
 include 'session.php'; ?>
 
-
-
-
-
 <!doctype html>
 <html lang="en">
-
-
 <head>
-
-
     <meta charset="utf-8" />
     <title>Form Elements | Skote - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,34 +72,25 @@ include 'session.php'; ?>
                                 else{
                                     $sql = "UPDATE `product` SET `product_name` = '$product_name' , `product_image` = '$filename' , `price` = '$product_price'  WHERE `product`.`product_id` = $id";
                                     $result = mysqli_query($conn,$sql);
+                                    header('location:http://demo1.com/product.php');
                                 }
                             }
                             else{
                                 $sql = "UPDATE `product` SET `product_name` = '$product_name' , `price` = '$product_price'  WHERE `product`.`product_id` = $id";
                                     $result = mysqli_query($conn,$sql);
+                                    header('location:http://demo1.com/product.php');
+
                             }
-                            ?>
-
-                            <?php
                             if ($result == true) {
-                                ?>
-                                <div class="alert alert-primary" role="alert">
+                                echo '<div class="alert alert-primary" role="alert">
                                     product Updated!
-                                </div>
-
-                                <?php
+                                    </div>'; 
                                 } else {
-                                ?>
-                                
-                                <div class="alert alert-danger" role="alert">
+                                echo '<div class="alert alert-danger" role="alert">
                                     Error!
-                                </div>
-
-                            <?php
-                                
+                                    </div>';                              
                                 }
                             }
-
                         ?>
 
                     <div class="row">
@@ -116,7 +99,6 @@ include 'session.php'; ?>
                             <div class="card">
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="card-body">
-
                                         <div class="mb-3 row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">product
                                                 name</label>
@@ -142,14 +124,11 @@ include 'session.php'; ?>
                                                     name="productprice"  value="<?php echo $row['price']?>">
                                             </div>
                                         </div>
-
                                         <div class="mb-3 row">
-
                                             <div class="col-md-10">
                                                 <button type="submit" name="update" id="update" class="btn btn-primary waves-effect waves-light">Update</button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
@@ -160,17 +139,13 @@ include 'session.php'; ?>
                 </div> <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-
             <?php
             include 'footer.php'
             ?>
         </div>
         <!-- end main content-->
-
     </div>
     <!-- END layout-wrapper -->
-
     <!-- Right Sidebar -->
     <div class="right-bar">
         <div data-simplebar class="h-100">
@@ -182,21 +157,17 @@ include 'session.php'; ?>
                     <i class="mdi mdi-close noti-icon"></i>
                 </a>
             </div>
-
             <!-- Settings -->
             <hr class="mt-0" />
             <h6 class="text-center mb-0">Choose Layouts</h6>
-
             <div class="p-4">
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
                 </div>
-
                 <div class="form-check form-switch mb-3">
                     <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
                     <label class="form-check-label" for="light-mode-switch">Light Mode</label>
                 </div>
-
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -204,7 +175,6 @@ include 'session.php'; ?>
                     <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
                     <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
                 </div>
-
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -212,7 +182,6 @@ include 'session.php'; ?>
                     <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch">
                     <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
                 </div>
-
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -220,10 +189,7 @@ include 'session.php'; ?>
                     <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                     <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                 </div>
-
-
             </div>
-
         </div> <!-- end slimscroll-menu-->
     </div>
     <!-- /Right-bar -->
@@ -239,10 +205,5 @@ include 'session.php'; ?>
     <script src="assets/libs/node-waves/waves.min.js"></script>
 
     <script src="assets/js/app.js"></script>
-
 </body>
-
-
-
-
 </html>

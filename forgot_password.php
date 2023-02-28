@@ -1,12 +1,8 @@
-<?php 
-include 'conn.php'; ?>
+<?php include 'conn.php'; ?>
 
 
 <!doctype html>
 <html lang="en">
-
-<!-- Mirrored from themesbrand.com/skote/layouts/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:15 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -115,8 +111,6 @@ include 'conn.php'; ?>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-
 
     <!-- JAVASCRIPT -->
     <script src="assets/libs/jquery/jquery.min.js"></script>

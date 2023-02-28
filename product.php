@@ -61,7 +61,6 @@ error_reporting(E_ALL);?>
                                 <div class="page-title-right">
                                     <a href="addproduct.php"> <button type="button" class="btn btn-primary waves-effect waves-light">Add product</button></a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -225,8 +224,5 @@ error_reporting(E_ALL);?>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-
-    
-
 </body>
 </html>

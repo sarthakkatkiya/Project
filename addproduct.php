@@ -4,7 +4,6 @@ include 'session.php';
 
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <title>Form Elements | Skote - Admin & Dashboard Template</title>
@@ -13,7 +12,6 @@ include 'session.php';
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
@@ -29,15 +27,12 @@ include 'session.php';
         <?php
         include 'header.php';
         include 'menu.php' ?>
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
@@ -52,8 +47,6 @@ include 'session.php';
                         </div>
                     </div>
                     <!-- end page title -->
-
-
                     <div class="row">
                         <div class="col-2"></div>
                         <div class="col-9">
@@ -105,28 +98,22 @@ include 'session.php';
     <div class="right-bar">
         <div data-simplebar class="h-100">
             <div class="rightbar-title d-flex align-items-center px-3 py-4">
-
                 <h5 class="m-0 me-2">Settings</h5>
-
                 <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
                     <i class="mdi mdi-close noti-icon"></i>
                 </a>
             </div>
-
             <!-- Settings -->
             <hr class="mt-0" />
             <h6 class="text-center mb-0">Choose Layouts</h6>
-
             <div class="p-4">
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
                 </div>
-
                 <div class="form-check form-switch mb-3">
                     <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
                     <label class="form-check-label" for="light-mode-switch">Light Mode</label>
                 </div>
-
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -134,7 +121,6 @@ include 'session.php';
                     <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
                     <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
                 </div>
-
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -142,7 +128,6 @@ include 'session.php';
                     <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch">
                     <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
                 </div>
-
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
                 </div>
@@ -150,10 +135,7 @@ include 'session.php';
                     <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                     <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                 </div>
-
-
             </div>
-
         </div> <!-- end slimscroll-menu-->
     </div>
     <!-- /Right-bar -->
@@ -181,14 +163,11 @@ include 'session.php';
                 var pname = $("#productname").val();
                 var price = $("#productprice").val();
                 var pimage = $("#productimage").prop('files')[0];
-                
-
+            
                 formdata.append('pname', pname);
                 formdata.append('pimage', pimage);
                 formdata.append('price', price);    
                 formdata.append('action', 'addproduct');
-
-                
 
                 $.ajax({
                     type: "POST",
@@ -206,7 +185,5 @@ include 'session.php';
             }); 
         });
     </script>
-
 </body>
-
 </html>

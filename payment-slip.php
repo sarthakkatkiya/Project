@@ -4,9 +4,7 @@ include 'session.php';
 ?>
 <!doctype html>
 <html lang="en">
-    
 <head>
-        
         <meta charset="utf-8" />
         <title>Invoice Detail | Skote - Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +19,6 @@ include 'session.php';
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
     </head>
 
     <body data-sidebar="dark">
@@ -209,10 +206,7 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                         <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                     </div>
-
-            
                 </div>
-
             </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
@@ -230,6 +224,4 @@ include 'session.php';
         <script src="assets/js/app.js"></script>
 
     </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/invoices-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:26 GMT -->
 </html>

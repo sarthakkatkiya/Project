@@ -6,9 +6,6 @@ error_reporting(E_ALL); ?>
 <!doctype html>
 <html lang="en">
 
-
-<!-- Mirrored from themesbrand.com/skote/layouts/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:30 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -42,22 +39,14 @@ error_reporting(E_ALL); ?>
 </head>
 
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
-
-
         <!-- ========== Left Sidebar Start ========== -->
         <?php
         include 'header.php';
         include 'menu.php' ?>
         <!-- Left Sidebar End -->
-
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -189,11 +178,6 @@ error_reporting(E_ALL); ?>
                     <div class="rightbar-overlay"></div>
 
                     <!-- JAVASCRIPT -->
-                    <script>
-                        $(document).ready(function() {
-
-                        });
-                    </script>
 
                     <script src="assets/libs/jquery/jquery.min.js"></script>
                     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -222,9 +206,5 @@ error_reporting(E_ALL); ?>
                     <script src="assets/js/pages/datatables.init.js"></script>
 
                     <script src="assets/js/app.js"></script>
-
 </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:30 GMT -->
-
 </html>

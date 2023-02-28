@@ -1,8 +1,5 @@
 <!doctype html>
 <html lang="en">
-
-    
-<!-- Mirrored from themesbrand.com/skote/layouts/form-layouts.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:20 GMT -->
 <head>
         
         <meta charset="utf-8" />
@@ -20,10 +17,8 @@
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-    </head>
-
-    <body data-sidebar="dark">
-
+</head>
+<body data-sidebar="dark">
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
         <!-- Begin page -->
@@ -33,9 +28,6 @@
             <!-- ========== Left Sidebar Start ========== -->
            <?php include("menu.php")?>
             <!-- Left Sidebar End -->
-
-            
-
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
@@ -61,21 +53,17 @@
                             </div>
                         </div>
                         <!-- end page title -->
-
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title mb-4">Form Grid Layout</h4>
-
                                         <form>
                                             <div class="mb-3">
                                                 <label for="formrow-firstname-input" class="form-label">First Name</label>
                                                 <input type="text" class="form-control" id="formrow-firstname-input" placeholder="Enter Your First Name">
                                             </div>
-
                                             <div class="row">
-                                                
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="formrow-email-input" class="form-label">Email</label>
@@ -89,7 +77,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
@@ -106,7 +93,6 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
                                                         <label for="formrow-inputZip" class="form-label">Zip</label>
@@ -114,9 +100,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="mb-3">
-                                                
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="gridCheck">
                                                     <label class="form-check-label" for="gridCheck">
@@ -128,18 +112,13 @@
                                                 <button type="submit" class="btn btn-primary w-md">Submit</button>
                                             </div>
                                         </form>
-                                    </div>
-                                    <!-- end card body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col -->
-
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title mb-4">Horizontal Form Layout</h4>
-
                                         <form>
                                             <div class="row mb-4">
                                                 <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">First name</label>
@@ -159,7 +138,6 @@
                                                   <input type="password" class="form-control" id="horizontal-password-input" placeholder="Enter Your Password">
                                                 </div>
                                             </div>
-
                                             <div class="row justify-content-end">
                                                 <div class="col-sm-9">
 
@@ -169,28 +147,21 @@
                                                             Remember me
                                                         </label>
                                                     </div>
-
                                                     <div>
                                                         <button type="submit" class="btn btn-primary w-md">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-                                    </div>
-                                    <!-- end card body -->
-                                </div>
-                                <!-- end card -->
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
+                                    </div><!-- end card body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                        </div> <!-- end row -->
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title mb-4">Auto Sizing</h5>
-
                                         <form class="row gy-2 gx-3 align-items-center">
                                             <div class="col-sm-auto">
                                                 <label class="visually-hidden" for="autoSizingInput">Name</label>
@@ -247,7 +218,6 @@
                                                     <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
                                                 </div>
                                             </div>
-                                          
                                             <div class="col-12">
                                                 <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
                                                 <select class="form-select" id="inlineFormSelectPref">
@@ -257,7 +227,6 @@
                                                     <option value="3">Three</option>
                                                 </select>
                                             </div>
-                                          
                                             <div class="col-12">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="inlineFormCheck">
@@ -266,12 +235,10 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                          
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-primary w-md">Submit</button>
                                             </div>
                                         </form>
-
                                     </div>
                                     <!-- end card body -->
                                 </div>
@@ -280,14 +247,12 @@
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Floating labels</h5>
                                         <p class="card-title-desc">Create beautifully simple form labels that float over your input fields.</p>
-
                                         <form>
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control" id="floatingnameInput" placeholder="Enter Name">
@@ -312,7 +277,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="mb-3">
                                                 
                                                 <div class="form-check">
@@ -332,7 +296,6 @@
                                 <!-- end card -->
                             </div>
                             <!-- end col -->
-
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
@@ -358,8 +321,6 @@
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
-
-                
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -376,7 +337,6 @@
                 </footer>
             </div>
             <!-- end main content-->
-
         </div>
         <!-- END layout-wrapper -->
 
@@ -429,10 +389,7 @@
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                         <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                     </div>
-
-            
                 </div>
-
             </div> <!-- end slimscroll-menu-->
         </div>
         <!-- /Right-bar -->
@@ -450,6 +407,4 @@
         <script src="assets/js/app.js"></script>
 
     </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/form-layouts.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:34:20 GMT -->
 </html>

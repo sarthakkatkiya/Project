@@ -1,17 +1,10 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 include 'conn.php';
 include 'session.php';
 ?>
 
 <!doctype html>
 <html lang="en">
-
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 <head>
 
     <meta charset="utf-8" />
@@ -32,27 +25,19 @@ include 'session.php';
 </head>
 
 <body data-sidebar="dark">
-
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <?php
         include 'header.php';
         include 'menu.php';
         ?>
-        <!-- Left Sidebar End -->
-
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
@@ -70,7 +55,6 @@ include 'session.php';
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
@@ -133,21 +117,12 @@ include 'session.php';
                                                         <td><?php echo $row["product_name"]; ?></td>
                                                         <td><?php echo $row["order_status"]; ?></td>
                                                         <td><?php echo $row["cancel_reason"]; ?></td>
-
-                                                        <!-- <td>
-                                                            <div class="d-flex gap-3">
-                                                                <i class="mdi mdi-pencil font-size-18 text-success" data-bs-toggle="modal" data-bs-target="#SK25<?php echo $row['order_id'] ?>"></i>
-                                                                <a href="order-delete.php?order=<?php echo $row['order_id']; ?>"><i class="mdi mdi-delete font-size-18 text-danger"></i></a>
-                                                            </div>
-                                                        </td> -->
-
                                                     </tr>
                                                 <?php
                                                     $_SESSION["cancelorder"] = $count;
                                                     $count++;
                                                 }
                                                 ?>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -181,14 +156,12 @@ include 'session.php';
             </div>
 
             <!-- ------modal start--------- -->
-
             <?php
             $data = mysqli_query($conn, "SELECT * FROM `order`") or die(mysqli_error($conn));
             $count = 1;
             while ($row = mysqli_fetch_assoc($data)) {
 
             ?>
-
                 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="orderdetailsModalLabel" aria-hidden="true" id="SK25<?php echo $row['order_id'] ?>">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -281,13 +254,11 @@ include 'session.php';
                         </div>
                     </div>
                 </div>
-
             <?php
                 $count++;
             }
             ?>
             <!-- ------modal end--------- -->
-
             <?php include "footer.php"; ?>
 
         </div>
@@ -307,17 +278,14 @@ include 'session.php';
                 <!-- Settings -->
                 <hr class="mt-0" />
                 <h6 class="text-center mb-0">Choose Layouts</h6>
-
                 <div class="p-4">
                     <div class="mb-2">
                         <img src="assets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="layout images">
                     </div>
-
                     <div class="form-check form-switch mb-3">
                         <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
                         <label class="form-check-label" for="light-mode-switch">Light Mode</label>
                     </div>
-
                     <div class="mb-2">
                         <img src="assets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="layout images">
                     </div>
@@ -325,7 +293,6 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
                         <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
                     </div>
-
                     <div class="mb-2">
                         <img src="assets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="layout images">
                     </div>
@@ -333,7 +300,6 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch">
                         <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
                     </div>
-
                     <div class="mb-2">
                         <img src="assets/images/layouts/layout-4.jpg" class="img-thumbnail" alt="layout images">
                     </div>
@@ -341,13 +307,9 @@ include 'session.php';
                         <input class="form-check-input theme-choice" type="checkbox" id="dark-rtl-mode-switch">
                         <label class="form-check-label" for="dark-rtl-mode-switch">Dark RTL Mode</label>
                     </div>
-
-
                 </div>
-
             </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
+        </div><!-- /Right-bar -->
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
@@ -363,7 +325,4 @@ include 'session.php';
         <script src="assets/js/app.js"></script>
 
 </body>
-
-<!-- Mirrored from themesbrand.com/skote/layouts/ecommerce-orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jul 2022 08:32:13 GMT -->
-
 </html>

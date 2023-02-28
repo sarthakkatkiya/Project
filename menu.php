@@ -1,22 +1,17 @@
 
 <div class="vertical-menu">
-
     <div data-simplebar class="h-100">
-
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">Menu</li>
-
                 <li>
                     <a href="dashbord.php" class="waves-effect">
                         <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">04</span>
                         <span key="t-dashboards">Dashboards</span>
                     </a>
-
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-store"></i>
@@ -44,15 +39,12 @@
                         <i class="bx bxs-bar-chart-alt-2"></i>
                         <span key="t-email">Chart</span>
                     </a>
-
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class='bx bx-user'></i>
                         <span key="t-email">User</span>
                     </a>
-
                 </li>
                 <li>
                     <a href="payment.php">
@@ -65,16 +57,12 @@
 
                     </ul> -->
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class=" waves-effect">
                         <i class='bx bx-user-circle' ></i>
                         <span key="t-crypto">Admin Profile</span>
                     </a>
-
                 </li>
-
-
             </ul>
         </div>
         <!-- Sidebar -->

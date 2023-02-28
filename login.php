@@ -21,7 +21,6 @@ session_start() ?>
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
 </head>
-
 <body>
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
@@ -50,7 +49,6 @@ session_start() ?>
                                         </span>
                                     </div>
                                 </a>
-
                                 <a href="index.html" class="auth-logo-dark">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
@@ -59,7 +57,6 @@ session_start() ?>
                                     </div>
                                 </a>
                             </div>
-
 
                             <?php
                             if (isset($_POST['submit'])) {
@@ -84,11 +81,9 @@ session_start() ?>
                                         $_SESSION["adminusername"] = $row["username"];
                                         $_SESSION["adminid"] = $row["id"];
                                     }
-
                                     echo "<script> window.location = 'dashbord.php' </script>";
                                 }
                             }
-
                             ?>
                             <div class="p-2">
                                 <form class="form-horizontal" id="loginForm" action="" method="post">
@@ -97,7 +92,6 @@ session_start() ?>
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
                                     </div>
-
                                     <div class="mb-3">
                                         <label class="form-label">Password</label>
                                         <div class="input-group auth-pass-inputgroup">
@@ -105,21 +99,18 @@ session_start() ?>
                                             <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                         </div>
                                     </div>
-
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="remember-check">
                                         <label class="form-check-label" for="remember-check">
                                             Remember me
                                         </label>
                                     </div>
-
                                     <div class="mt-3 d-grid">
                                         <button class="btn btn-primary waves-effect waves-light " type="submit" name="submit" id="submit">submit
                                         </button>
                                     </div>
                                     <div class="mt-4 text-center">
                                         <h5 class="font-size-14 mb-3">Sign in with</h5>
-
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <a href="javascript::void()"
@@ -141,13 +132,10 @@ session_start() ?>
                                             </li>
                                         </ul>
                                     </div>
-
                                     <div class="mt-4 text-center">
                                         <a href="forgot_password.php" class="text-muted"><i
                                                 class="mdi mdi-lock me-1"></i> Forgot your password?</a>
                                     </div>
-
-
                                 </form>
                             </div>
 
@@ -178,7 +166,6 @@ session_start() ?>
     <script src="assets/libs/metismenu/metisMenu.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
-
 
     <!-- App js -->
     <script src="assets/js/app.js"></script>
@@ -217,6 +204,4 @@ session_start() ?>
         });
     </script>
 </body>
-
-
 </html>
