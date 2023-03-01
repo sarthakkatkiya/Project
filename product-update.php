@@ -64,22 +64,23 @@ include 'session.php'; ?>
                             $ext = pathinfo($_FILES["productimage"]["name"],PATHINFO_EXTENSION);
                             $filename = rand(1111,9999).time().".".$ext;
                             move_uploaded_file($_FILES["productimage"]["tmp_name"],"assets/uploads/product/". $filename);
+                            
 
                             if($_FILES['productimage']['name'] != ""){
                                 if ($_FILES["productimage"]["error"] > 0){
                                     echo $_FILES["fileToUpload"]["error"] . "<br>";
                                 }
                                 else{
+                                    unlink("assets/uploads/product/".$row['product_image']);
                                     $sql = "UPDATE `product` SET `product_name` = '$product_name' , `product_image` = '$filename' , `price` = '$product_price'  WHERE `product`.`product_id` = $id";
                                     $result = mysqli_query($conn,$sql);
-                                    header('location:http://demo1.com/product.php');
+                                    echo '<script> window.location.href = "http://demo1.com/product.php" </script>';
                                 }
                             }
                             else{
                                 $sql = "UPDATE `product` SET `product_name` = '$product_name' , `price` = '$product_price'  WHERE `product`.`product_id` = $id";
                                     $result = mysqli_query($conn,$sql);
-                                    header('location:http://demo1.com/product.php');
-
+                                    echo '<script> window.location.href = "http://demo1.com/product.php" </script>';
                             }
                             if ($result == true) {
                                 echo '<div class="alert alert-primary" role="alert">
